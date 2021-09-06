@@ -1,0 +1,28 @@
+<% layout('layouts/boilerplate.ejs')%>
+<div id="map" class="map-index"></div>
+
+    <h1 class="my-3">All Campgrounds</h1>
+
+    <% for(let i=0;i<campgrounds.length;i++){ %>
+        <div class="card mb-4">
+            <div class="row">
+                <div class="col-md-4">
+                        <img class="img-fluid" src="<%=campgrounds[i].images.length?campgrounds[i].images[0].url:'https://www.euttaranchal.com/tourism/photos/camping-in-chakrata-8761748.jpg' %>" alt="">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><%=campgrounds[i].title%></h5>
+                        <p class="card-text"><%=campgrounds[i].description%></p>
+                        
+                        <a class="btn btn-primary" href="/campgrounds/<%=campgrounds[i]._id%>">View <%=campgrounds[i].title%></a>
+                    </div>
+                    
+                </div>
+            </div>
+</div>
+    <% } %>
+    <script>
+        const mapToken = '<%- process.env.MAPBOX_TOKEN %>';
+        const campgrounds = {features:<%- JSON.stringify(campgrounds)%>};
+    </script>
+    <script src="/javascript/clusterMap.js"></script>

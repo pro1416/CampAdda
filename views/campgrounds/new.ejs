@@ -1,0 +1,51 @@
+<% layout('layouts/boilerplate.ejs')%>
+<div class="row">
+    <div class="col-6 offset-3">
+        <h1 class="text-center">New Campground</h1>
+        <form action="/campgrounds" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
+            <label class="form-label" for="title">Title</label>
+            <input class="form-control mb-3" type="text" id="title" name="campground[title]" required>
+            <div class="valid-feedback">
+                Looks good!
+              </div>
+        
+            <label class="form-label" for="location">Location</label>
+            <input class="form-control mb-3" type="text" id="location" name="campground[location]" required>
+            <div class="valid-feedback">
+                Looks good!
+              </div>
+
+              <div class="my-3 custom-file">
+                <input class="form-control" type="file" id="image" name="image" multiple>
+                <label for="image" class="form-file-label custom-file-label"></label>
+              </div>
+            
+            <label class="form-label" for="price">Campground Price</label>
+            <div class="input-group mb-3">
+                <div class="input-group-text">$</div>
+                <input type="text" class="form-control" id="price" placeholder="0.00" name="campground[price]" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+
+            <label class="form-label" for="campground-description">Campground Description</label>    
+            <textarea class="form-control mb-3" placeholder="Description" id="campground-description" name="campground[description]" required></textarea>
+            <div class="valid-feedback mb-5">
+                Looks good!
+              </div>
+
+            <div>
+                <button class="btn btn-success mb-3">Add Campground</button>
+            </div>
+            
+        </form>
+       
+    </div>
+</div> 
+
+
+
+    
+
+    
